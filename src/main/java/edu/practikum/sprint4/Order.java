@@ -54,6 +54,7 @@ public class Order {
         driver.findElement(buttonOrderMiddle).click();
         return this;
     }
+
     //прокрутка до кнопки "Заказать" в середине страницы
     public Order scroll() {
         WebElement element = driver.findElement(By.xpath(".//div[@class='Home_FinishButton__1_cWm']"));
@@ -79,6 +80,7 @@ public class Order {
         driver.findElement(By.xpath(".//div[@aria-label='Choose воскресенье, 5-е ноября 2023 г.']")).click();
         return this;
     }
+
     //метод клика в поле "Срок аренды" и выбора значения
     public Order fillInRentalPeriod() {
         driver.findElement(rentalPeriod).click();
@@ -103,36 +105,19 @@ public class Order {
         driver.findElement(buttonOrderInForm).click();
         return this;
     }
+
     //метод ля наатия на кнопку "Да" в форме подтвержения заказа
     public Order clickButtonYes() {
         driver.findElement(buttonYes).click();
         return this;
     }
-/*метод для ожидания загрузки формы заказа "Для кого самокат"
-    public void waitForLoadOrderContent() {
-        new WebDriverWait(driver, 10).until(driver -> (driver.findElement(orderContent).getText() != null
-                && !driver.findElement(orderContent).getText().isEmpty()
-        ));
-    }
-    //метод для ожидания загрузки формы заказа "Про аренду"
-    public void waitForLoadOrderRentContent() {
-        new WebDriverWait(driver, 10).until(driver -> (driver.findElement(orderRentContent).getText() != null
-                && !driver.findElement(orderRentContent).getText().isEmpty()
-        ));
-    }
-    //метод для ожидания загрузки подтверждения заказа
-    public void waitForLoadOrderConfirm() {
-        new WebDriverWait(driver, 3).until(driver -> (driver.findElement(orderConfirm).getText() != null
-                && !driver.findElement(orderConfirm).getText().isEmpty()
-        ));
-    }
 
- */
     //метод проверки успешности заказа
-    public Order checkSuccessMessage(){
+    public Order checkSuccessMessage() {
         Assert.assertFalse("Заказ оформлен ", driver.findElements(orderDone).isEmpty());
         return this;
     }
+
     public void checkUrlOrder() {
         wait.until(ExpectedConditions.urlToBe("https://qa-scooter.praktikum-services.ru/order"));
     }

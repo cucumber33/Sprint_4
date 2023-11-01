@@ -5,12 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,12 +23,13 @@ public class TestOrderInTheMiddle {
 
     @Parameterized.Parameters
     public static Collection<String[]> testData() {
-        return Arrays.asList(new String[][] {
-                {"Татьяна", "Варфоломеева", "ирк", "98347363233","я вам не открою"},
-                {"Джеймс", "Бщнд", "Irkuutsk", "89456335432","no"}
+        return Arrays.asList(new String[][]{
+                {"Татьяна", "Варфоломеева", "ирк", "98347363233", "я вам не открою"},
+                {"Джеймс", "Бщнд", "Irkuutsk", "89456335432", "no"}
 
         });
     }
+
     public void TestOrderInMiddle(String name, String surname, String address, String phone, String comment) {
         this.name = name;
         this.surname = surname;
@@ -40,6 +37,7 @@ public class TestOrderInTheMiddle {
         this.phone = phone;
         this.comment = comment;
     }
+
     @Before
     public void setUp() {
         driver = new ChromeDriver();

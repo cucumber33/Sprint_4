@@ -25,10 +25,7 @@ public class Locators {
 
     //закрыть куки
     public static final By closeCookie = By.xpath(".//button[@class='App_CookieButton__3cvqF']");
-    //форма Заказа "Для кого самокат"
-    //public static final By orderContent = By.xpath(".//div[@class='Order_Content__bmtHS']");
-    //форма Заказа "Про аренду"
-    //public static final By orderRentContent = By.xpath(".//div[@class='Order_Header__BZXOb']");
+
     //переменная для пути к кнопке "Заказать" вверху страницы
     public static final By buttonOrderHeader = By.xpath(".//button[@class='Button_Button__ra12g' and text()='Заказать']");
     //переменная для пути к кнопке "Заказать" в середине странице
@@ -44,7 +41,6 @@ public class Locators {
     public static final By rentalPeriod = By.className("Dropdown-placeholder");
     public static final By commentField = By.xpath(".//input[@class = 'Input_Input__1iN_Z Input_Responsible__1jDKN']");
     public static final By nextButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
-    //public static final By orderConfirm = By.className("Order_Modal__YZ-d3");
     public static final By buttonYes = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']");
     public static final By orderDone = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ']");
 

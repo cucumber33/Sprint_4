@@ -26,7 +26,6 @@ public class TestOrderInHeader {
         return Arrays.asList(new String[][]{
                 {"Татьяна", "Варфоломеева", "Иркутск", "98347363233", "я вам не открою"},
                 {"Джеймс", "Бщнд", "Пермь", "89456335432", "no"}
-
         });
     }
 
@@ -66,7 +65,7 @@ public class TestOrderInHeader {
                 .checkUrlOrder();
     }
 
-@After
+    @After
     public void teardown() {
         // Закрой браузер
         driver.quit();

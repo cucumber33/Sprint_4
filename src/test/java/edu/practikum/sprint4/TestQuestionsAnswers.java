@@ -25,25 +25,28 @@ public class TestQuestionsAnswers {
         this.questionLocator = questionLocator;
         this.answerLocator = answerLocator;
     }
+
     @Before
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
     }
+
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
-                { question1, answer1 },
-                { question2, answer2 },
-                { question3, answer3 },
-                { question4, answer4 },
-                { question5, answer5 },
-                { question6, answer6 },
-                { question7, answer7 },
-                { question8, answer8 },
+        return Arrays.asList(new Object[][]{
+                {question1, answer1},
+                {question2, answer2},
+                {question3, answer3},
+                {question4, answer4},
+                {question5, answer5},
+                {question6, answer6},
+                {question7, answer7},
+                {question8, answer8},
         });
     }
+
     @Test
     public void testCheckAllQuestions() {
 
@@ -54,6 +57,7 @@ public class TestQuestionsAnswers {
         assertTrue(questions.isAnswerDisplayed(answerLocator));
 
     }
+
     @After
     public void teardown() {
         // Закрой браузер
