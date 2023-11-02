@@ -11,6 +11,7 @@ import static locators.Locators.*;
 public class Order {
     private final WebDriver driver;
     private final WebDriverWait wait;
+    private static final String URL_ORDER = "https://qa-scooter.praktikum-services.ru/order";
 
     public Order(WebDriver driver, long timeoutInSeconds) {
         this.driver = driver;
@@ -18,40 +19,40 @@ public class Order {
     }
 
     public Order setUsername(String username) {
-        driver.findElement(nameField).sendKeys(username);
+        driver.findElement(NAME_FIELD).sendKeys(username);
         return this;
     }
 
     public Order setSurname(String surname) {
-        driver.findElement(surnameField).sendKeys(surname);
+        driver.findElement(SURNAME_FIELD).sendKeys(surname);
         return this;
     }
 
     public Order setAddress(String address) {
-        driver.findElement(addressField).sendKeys(address);
+        driver.findElement(ADDRESS_FIELD).sendKeys(address);
         return this;
     }
 
     //метод клика в поле "Станция метро" и заполнения
     public Order chooseStation() {
-        driver.findElement(stationField).sendKeys(Keys.DOWN, Keys.ENTER);
+        driver.findElement(STATION_FIELD).sendKeys(Keys.DOWN, Keys.ENTER);
         return this;
     }
 
     public Order setPhone(String phone) {
-        driver.findElement(phoneField).sendKeys(phone);
+        driver.findElement(PHONE_FIELD).sendKeys(phone);
         return this;
     }
 
     //метод нажатия на кнопку "Заказать" вверху старницы
     public Order clickButtonOrderHeader() {
-        driver.findElement(buttonOrderHeader).click();
+        driver.findElement(BUTTON_ORDER_HEADER).click();
         return this;
     }
 
     //метод нажатия на кнопку "Заказать" в середине старницы
     public Order clickButtonOrderMiddle() {
-        driver.findElement(buttonOrderMiddle).click();
+        driver.findElement(BUTTON_ORDER_MIDDLE).click();
         return this;
     }
 
@@ -64,26 +65,26 @@ public class Order {
 
     //метод нажатия на кнопку "Далее"
     public Order clickNextButton() {
-        driver.findElement(nextButton).click();
+        driver.findElement(NEXT_BUTTON).click();
         return this;
     }
 
     //метод нажатия на кнопку "Далее"
     public Order clickCloseCookie() {
-        driver.findElement(closeCookie).click();
+        driver.findElement(CLOSE_COOKIE).click();
         return this;
     }
 
     //метод клика в поле "Когда привезти самокат" и заполнения
     public Order fillInTimeOfDelivery() {
-        driver.findElement(timeOfDelivery).click();
+        driver.findElement(TIME_OF_DELIVERY).click();
         driver.findElement(By.xpath(".//div[@aria-label='Choose воскресенье, 5-е ноября 2023 г.']")).click();
         return this;
     }
 
     //метод клика в поле "Срок аренды" и выбора значения
     public Order fillInRentalPeriod() {
-        driver.findElement(rentalPeriod).click();
+        driver.findElement(RENTAL_PERIOD).click();
         driver.findElement(By.xpath(".//div[@class='Dropdown-menu']/div[last()]")).click();
         return this;
     }
@@ -96,30 +97,30 @@ public class Order {
 
     //метод клика в поле "Комментарий" и заполнения
     public Order setComment(String comment) {
-        driver.findElement(commentField).sendKeys(comment);
+        driver.findElement(COMMENT_FIELD).sendKeys(comment);
         return this;
     }
 
     //метод нажатия на кнопку заказать
     public Order clickOrderButtonInForm() {
-        driver.findElement(buttonOrderInForm).click();
+        driver.findElement(BUTTON_ORDER_IN_FORM).click();
         return this;
     }
 
     //метод ля наатия на кнопку "Да" в форме подтвержения заказа
     public Order clickButtonYes() {
-        driver.findElement(buttonYes).click();
+        driver.findElement(YES_BUTTON).click();
         return this;
     }
 
     //метод проверки успешности заказа
     public Order checkSuccessMessage() {
-        Assert.assertFalse("Заказ оформлен ", driver.findElements(orderDone).isEmpty());
+        Assert.assertTrue("Заказ не оформлен ", driver.findElements(ORDER_DONE).isEmpty());
         return this;
     }
 
     public void checkUrlOrder() {
-        wait.until(ExpectedConditions.urlToBe("https://qa-scooter.praktikum-services.ru/order"));
+        wait.until(ExpectedConditions.urlToBe(URL_ORDER));
     }
 }
 

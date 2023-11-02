@@ -16,8 +16,7 @@ import static locators.Locators.*;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class TestQuestionsAnswers {
-    private WebDriver driver;
+public class TestQuestionsAnswers extends Temp{
     private String questionLocator;
     private String answerLocator;
 
@@ -26,24 +25,17 @@ public class TestQuestionsAnswers {
         this.answerLocator = answerLocator;
     }
 
-    @Before
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-    }
-
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {question1, answer1},
-                {question2, answer2},
-                {question3, answer3},
-                {question4, answer4},
-                {question5, answer5},
-                {question6, answer6},
-                {question7, answer7},
-                {question8, answer8},
+                {QUESTION_ONE, ANSWER_ONE},
+                {QUESTION_TWO, ANSWER_TWO},
+                {QUESTION_THREE, ANSWER_THREE},
+                {QUESTION_FOUR, ANSWER_FOUR},
+                {QUESTION_FIVE, ANSWER_FIVE},
+                {QUESTION_SIX, ANSWER_SIX},
+                {QUESTION_SEVEN, ANSWER_SEVEN},
+                {QUESTION_EIGHT, ANSWER_EIGHT},
         });
     }
 
@@ -56,12 +48,6 @@ public class TestQuestionsAnswers {
                 .clickQuestion(questionLocator);
         assertTrue(questions.isAnswerDisplayed(answerLocator));
 
-    }
-
-    @After
-    public void teardown() {
-        // Закрой браузер
-        driver.quit();
     }
 }
 
