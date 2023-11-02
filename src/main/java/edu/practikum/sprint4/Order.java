@@ -63,7 +63,7 @@ public class Order {
         return this;
     }
 
-    //метод нажатия на кнопку "Далее"
+    //метод нажатия на кнопку "Далеt
     public Order clickNextButton() {
         driver.findElement(NEXT_BUTTON).click();
         return this;
